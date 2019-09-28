@@ -1,0 +1,32 @@
+led.setBrightness(255)
+led.plot(1, 1)
+led.plot(3, 1)
+led.plot(0, 2)
+led.plot(1, 3)
+led.plot(2, 3)
+led.plot(3, 3)
+led.plot(4, 2)
+basic.forever(function () {
+   basic.pause(500)
+   led.toggle(4, 2)
+   led.toggle(0, 2)
+   basic.pause(300)
+   led.toggle(0, 4)
+   led.toggle(4, 4)
+   basic.pause(100)
+})
+input.onButtonPressed(Button.A, function () {
+   led.setBrightness(led.brightness() - 25)
+ 
+})
+input.onButtonPressed(Button.B, function () {
+   led.setBrightness(led.brightness() + 25)
+})
+input.onButtonPressed(Button.AB, function () {
+   basic.clearScreen()
+   basic.showNumber(led.brightness())
+   basic.showIcon(IconNames.Heart)
+   basic.pause(200)
+   basic.clearScreen()
+   basic.pause(400)
+})
